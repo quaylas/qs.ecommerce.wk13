@@ -12,6 +12,10 @@ router.get('/', (req, res) => {
   })
   .then(dbCategories => {
     res.json(dbCategories);
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(400).json(err);
   });
 });
 
@@ -25,6 +29,9 @@ router.get('/:id', (req, res) => {
   })
   .then(dbCategory => {
     res.json(dbCategory);
+  }).catch((err) => {
+    console.log(err);
+    res.status(400).json(err);
   });
 });
 
@@ -32,6 +39,10 @@ router.post('/', (req, res) => {
   // create a new category
   Category.create(req.body).then(dbCategory => {
     res.json(dbCategory);
+  })
+  .catch((err)=>{
+    console.log(err);
+    res.status(400).json(err);
   });
 });
 
@@ -43,6 +54,10 @@ router.put('/:id', (req, res) => {
     }
   }).then(dbCategory =>{
     res.json(dbCategory);
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(400).json(err);
   });
 });
 
@@ -54,6 +69,10 @@ router.delete('/:id', (req, res) => {
     }
   }).then(dbCategory => {
     res.json(dbCategory);
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(400).json(err);
   });
 });
 
